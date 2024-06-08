@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>{{ station.station_name }} - Информация о станции</title>
+    <link rel="stylesheet" href="/static/styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f4f4f4;
+        }
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background-color: #fff;
+            padding: 20px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        h1 {
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+        table, th, td {
+            border: 1px solid #ddd;
+        }
+        th, td {
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        .btn {
+            display: inline-block;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: #fff;
+            background-color: #007bff;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Станция: {{ station.station_name }}</h1>
+        <h2>Предсказанные температуры (2022-2026)</h2>
+        <table>
+            <tr>
+                <th>Год</th>
+                <th>Температура (°C)</th>
+            </tr>
+            {% for year in range(2022, 2027) %}
+            <tr>
+                <td>{{ year }}</td>
+                <td>{{ station['year' ~ year] }}</td>
+            </tr>
+            {% endfor %}
+        </table>
+        <a href="/map/{{ station.station_name }}" class="btn">Перейти на карту</a>
+    </div>
+</body>
+</html>
