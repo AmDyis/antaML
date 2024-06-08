@@ -7,7 +7,7 @@ conn = psycopg2.connect(
     host="localhost",
     database="anta",
     user="postgres",
-    password="4545"
+    password="**********"
 )
 
 # Создание объекта курсора для выполнения SQL-запросов
