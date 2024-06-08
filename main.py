@@ -3,9 +3,8 @@ from fastapi import FastAPI, Depends, HTTPException, Request
 from fastapi.responses import HTMLResponse
 from sqlalchemy.orm import Session
 from fastapi.templating import Jinja2Templates
-from db import SessionLocal
 from schemas import AntarktidaBase, AntarktidaList
-from station import *
+from station import SessionLocal, Antarktida, Base, engine
 import folium
 
 Base.metadata.create_all(bind=engine)
